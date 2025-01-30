@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+     <!-- Horizontal Navigation Bar -->
+     <nav class="navbar">
+        <a href="home.html">Home</a>
+        <a href="favorites.html">Favorites</a>
+        <a href="properties.html">Properties</a>
+        <button id="logout-btn">Logout</button>
+    </nav>
+
+    <div class="main-content">
+        <h1>Your Favorite Properties</h1>
+        <div id="favorites-list"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('/favorites/tenant_id') 
+                .then(response => response.json())
+                .then(properties => {
+                    document.getElementById("favorites-list").innerHTML = properties.map(property => `
+                        <div class="property-card">
+                            <img src="${property.image}" alt="${property.name}">
+                            <h3>${property.name}</h3>
+                            <p>Rent: ₹${property.rent}</p>
+                            <p>${property.address}</p>
+                        </div>
+                    `).join("");
+                });
+        });
+    </script>
+</body>
+</html>

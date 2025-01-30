@@ -1,0 +1,401 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: url('house_finder.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
+    animation: fadeInBackground 2s ease-in-out;
+}
+
+/* Fade-in Background */
+@keyframes fadeInBackground {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+/* Navigation Bar */
+.navbar {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    transition: all 0.4s ease-in-out;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: color 0.3s ease-in-out, background 0.3s;
+}
+
+.navbar a:hover {
+    color: white;
+    background: #2c98f0;
+}
+
+/* White Box Styling */
+.white-box {
+    background: rgba(7, 2, 2, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 75%;
+    max-width: 900px;
+    min-height: 75vh;
+    overflow-y: auto;
+    margin: auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade-in Effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Adjust Icon Sizes */
+.icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+/* Page Wrappers */
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('house_finder_image.jpg') no-repeat center center/cover;
+    padding: 30px;
+}
+
+/* Buttons */
+button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(19, 224, 46);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    margin-top: 12px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(156, 155, 155, 0.2);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover::before {
+    transform: scaleX(1);
+}
+
+button.primary {
+    background: linear-gradient(135deg, #2c98f0, #2268a8);
+}
+
+button.secondary {
+    background: linear-gradient(135deg, #f0932c, #a85a1c);
+}
+
+/* Form Styling */
+.input-group {
+    margin-bottom: 18px;
+    text-align: left;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #226b26;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: #2c98f0;
+    outline: none;
+    background: white;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #333;
+    padding: 12px 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar a:hover {
+    background: #2c98f0;
+    color: white;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #0c0c0c;
+    margin-bottom: 18px;
+}
+
+/* Property Listing */
+.property-listing {
+    margin-top: 25px;
+    padding: 18px;
+    background: rgba(10, 4, 4, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    animation: popUp 0.5s ease-in-out;
+}
+
+/* Pop-up Animation */
+@keyframes popUp {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.property-listing h2 {
+    font-size: 1.5rem;
+    color: #dfc30e;
+    margin-bottom: 8px;
+}
+
+.property-listing p {
+    font-size: 1rem;
+    color: #dfc30e;
+    margin-bottom: 4px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .white-box {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .sidebar a {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .input-group input {
+        font-size: 0.9rem;
+    }
+
+    .property-listing {
+        padding: 14px;
+    }
+}
+
+/* College Grid Layout */
+.college-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* College Card Styling */
+.college-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    width: 220px;
+}
+
+.college-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Sizing */
+.college-card img {
+    width: 100%;
+    max-width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Text Styling */
+.college-card p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Horizontal Navigation Bar */
+.navbar {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+/* Navbar Links */
+.navbar a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    padding: 10px 20px;
+    transition: color 0.3s ease-in-out, background 0.3s;
+    border-radius: 8px;
+    margin: 0 10px;
+}
+
+.navbar a:hover {
+    color: white;
+    background: #2c98f0;
+}
+
+/* Prevent Overlap - Add Space Below the Navbar */
+.main-content {
+    margin-top: 100px; /* Adjust this to create enough space below the navbar */
+    text-align: center;
+}
+
+/* College Grid Layout */
+.college-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* College Card Styling */
+.college-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    width: 220px;
+}
+
+.college-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Sizing */
+.college-card img {
+    width: 100%;
+    max-width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Text Styling */
+.college-card p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Property</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ <!-- Horizontal Navigation Bar -->
+ <nav class="navbar">
+    <a href="home.html">Home</a>
+    <a href="favorites.html">Favorites</a>
+    <a href="properties.html">Properties</a>
+    <button id="logout-btn">Logout</button>
+</nav>
+
+    <div class="main-content">
+        <h1>List Your Property</h1>
+        <form id="property-form" class="form-container">
+            <div class="input-group">
+                <input type="text" id="name" required>
+                <label for="name">Property Name</label>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="address" required>
+                <label for="address">Address</label>
+            </div>
+
+            <div class="input-group">
+                <input type="number" id="rent" required>
+                <label for="rent">Rent (₹)</label>
+            </div>
+
+            <div class="input-group file-upload">
+                <input type="file" id="image" accept="image/*" required onchange="previewImage(event)">
+                <label for="image">Upload Image</label>
+                <div id="image-preview"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">Add Property</button>
+        </form>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const preview = document.getElementById("image-preview");
+            preview.innerHTML = "";
+            const file = event.target.files[0];
+            if (file) {
+                const img = document.createElement("img");
+                img.src = URL.createObjectURL(file);
+                img.classList.add("preview-img");
+                preview.appendChild(img);
+            }
+        }
+
+        document.getElementById("property-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let formData = new FormData();
+            formData.append("name", document.getElementById("name").value);
+            formData.append("address", document.getElementById("address").value);
+            formData.append("rent", document.getElementById("rent").value);
+            formData.append("image", document.getElementById("image").files[0]);
+
+            fetch('/add-property', { method: 'POST', body: formData })
+                .then(() => alert("Property Listed Successfully"))
+                .then(() => window.location.reload());
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Owner Signup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="signup-wrapper">
+        <div class="signup-container">
+            <h1>🏠 House Owner Signup</h1>
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <img src="House owner.png" alt="Owner" class="icon">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Create a password">
+                    <div class="show-password">
+                        <input type="checkbox" id="togglePassword"> Show Password
+                    </div>
+                </div>
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+            <p class="login-text">Already have an account? <a href="login-owner.html">Login</a></p>
+        </div>
+    </div>
+    
+    <script src="signup.js"></script>
+</body>
+</html>
+

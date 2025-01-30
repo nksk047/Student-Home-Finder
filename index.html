@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏡 Find Your Perfect Home</h1>
+        <p>Select your role to get started:</p>
+        
+        <div class="user-box-container" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; max-width: 600px; margin: auto;">
+            <!-- Tenant Section -->
+            <div class="user-box" style="flex: 1; text-align: center;">
+                <img src="Tenant.png" alt="Tenant" class="icon">
+                <h2>For Tenants</h2>
+                <button onclick="navigateTo('login-tenant.html')">Login</button>
+                <button onclick="navigateTo('signup-tenant.html')">Signup</button>
+            </div>
+            
+            <!-- House Owner Section -->
+            <div class="user-box" style="flex: 1; text-align: center;">
+                <img src="House owner.png" alt="Owner" class="icon">
+                <h2>For Owners</h2>
+                <button onclick="navigateTo('login-owner.html')">Login</button>
+                <button onclick="navigateTo('signup-owner.html')">Signup</button>
+            </div>
+        </div>
+    </div>
+    
+    
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <!-- Horizontal Navigation Bar -->
+   <nav class="navbar">
+    <a href="home.html">Home</a>
+    <a href="favorites.html">Favorites</a>
+    <a href="properties.html">Properties</a>
+    <button id="logout-btn">Logout</button>
+</nav>
+    <div class="main-content">
+        <h1>Select College to List Property</h1>
+        <div class="college-grid">
+            <div class="college-card" onclick="navigateToOwnerProperties(1)">
+                <img src="sathyabama.jpg" alt="Sathyabama University">
+                <p>Sathyabama University</p>
+            </div>
+            <div class="college-card" onclick="navigateToOwnerProperties(2)">
+                <img src="SRM Kattankulathur.jpg" alt="SRM Kattankulathur">
+                <p>SRM Kattankulathur</p>
+            </div>
+            <div class="college-card" onclick="navigateToOwnerProperties(3)">
+                <img src="Sastra University.jpg" alt="Sastra University">
+                <p>Sastra University</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function navigateToOwnerProperties(collegeId) {
+            window.location.href = `owner-properties.html?college_id=${collegeId}`;
+        }
+    </script>
+</body>
+</html>
